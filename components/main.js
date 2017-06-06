@@ -1,3 +1,4 @@
+import moment from 'moment'
 import Lista from './list-ideas'
 
 class Main extends React.Component {
@@ -14,9 +15,14 @@ class Main extends React.Component {
     const { ideas } = this.state
     const { value } = e.target.idea
 
+    const newIdea = {
+      content: value,
+      date: moment().toString()
+    }
+
     if (! value) return
 
-    ideas.push(value)
+    ideas.push(newIdea)
     this.setState({ ideas, value: '' })
   }
 
