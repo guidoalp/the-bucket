@@ -36,7 +36,7 @@ class Main extends React.Component {
       <h1>The Bucket</h1>
       <Lista ideas={ this.state.ideas } />
       <form onSubmit={ this.onSubmit }>
-        <input type="text" name="idea" value={ this.state.value } placeholder={ this.getPlaceholder() } onChange={ this.onChange }/>
+        <textarea name="idea" value={ this.state.value } placeholder={ this.getPlaceholder() } onChange={ this.onChange }/>
         <button type="submit">Enviar</button>
       </form>
     </div>
