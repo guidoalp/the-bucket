@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
 import Header from '../components/header.js'
+import Main from '../components/main'
 import defaultPage from '../hocs/defaultPage'
 
-const Index = () => (
+const Ideas = () => (
   <div>
-    <h1>Please login or sign-up!</h1>
+    <Main />
   </div>
 )
 
-export default defaultPage(Index)
+export default defaultPage(Ideas)
