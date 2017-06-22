@@ -4,6 +4,7 @@ import loadDB from './db'
 import getIdeas from './get-ideas'
 import pushIdea from './push-idea'
 import Lista from './list-ideas'
+import { getUserFromCookie, getUserFromLocalStorage } from '../utils/auth'
 
 class Main extends React.Component {
 
@@ -22,6 +23,7 @@ class Main extends React.Component {
 
     const newIdea = {
       content: value,
+      author: getUserFromLocalStorage(),
       date: moment().toString()
     }
 
@@ -51,7 +53,6 @@ class Main extends React.Component {
 
   render() {
     return <div>
-      <h1>The Bucket</h1>
       <Lista ideas={ this.state.ideas } />
       <form onSubmit={ this.onSubmit }>
         <textarea name="idea" value={ this.state.value } placeholder={ this.getPlaceholder() } onChange={ this.onChange }/>

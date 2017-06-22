@@ -7,6 +7,7 @@ export default async(idea) => {
 
   newIdea.set({
     'content': idea.content,
+    'author': idea.author,
     'date': idea.date
   })
 

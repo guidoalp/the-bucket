@@ -6,7 +6,7 @@ function formatDate(date) {
 
 const Lista = props =>
   <ul>
-    { props.ideas.map((idea, index) => <li key={ index }>{ formatDate(idea.date) } => { idea.content }</li>) }
+    { props.ideas.map((idea, index) => <li key={ index }>{ formatDate(idea.date) } => { idea.author.name } => { idea.content }</li>) }
   </ul>
 
 export default Lista
