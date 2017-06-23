@@ -7,9 +7,7 @@ export default async() => {
   const item = await db
   .once('value')
   .then(snapshot => {
-    snapshot.forEach(function(e){
-      ideas.push(e.val().content)
-    })
+    snapshot.forEach(e => ideas.push(e.val()))
   })
 
   return ideas

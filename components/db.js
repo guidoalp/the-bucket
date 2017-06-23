@@ -14,6 +14,5 @@ export default async function loadDB() {
     }
   }
 
-  const ref = firebase.database().ref('ideas')
-  return ref
+  return firebase.database().ref('ideas')
 }
