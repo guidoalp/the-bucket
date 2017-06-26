@@ -1,7 +1,12 @@
 import moment from 'moment'
+
+import loadDB from './db'
+import getIdeas from './get-ideas'
+import pushIdea from './push-idea'
 import Lista from './list-ideas'
 
 class Main extends React.Component {
+
   constructor(props) {
     super(props)
     this.state = { ideas: [] }
@@ -24,10 +29,17 @@ class Main extends React.Component {
 
     ideas.push(newIdea)
     this.setState({ ideas, value: '' })
+
+    pushIdea(newIdea)
   }
 
   onChange({ value }) {
     this.setState({ value })
+  }
+
+  componentDidMount() {
+    const list = getIdeas()
+      .then(response => this.setState({ ideas: response }))
   }
 
   getPlaceholder() {
