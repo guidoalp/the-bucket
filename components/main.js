@@ -1,4 +1,5 @@
 import Lista from './list-ideas'
+import { getUserFromCookie, getUserFromLocalStorage } from '../utils/auth'
 
 class Main extends React.Component {
   constructor(props) {
@@ -14,9 +15,16 @@ class Main extends React.Component {
     const { ideas } = this.state
     const { value } = e.target.idea
 
+    const newIdea = {
+      content: value,
+      author: getUserFromLocalStorage()
+    }
+
+    getUserFromLocalStorage().name
+
     if (! value) return
 
-    ideas.push(value)
+    ideas.push(newIdea)
     this.setState({ ideas, value: '' })
   }
 
