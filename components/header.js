@@ -28,7 +28,12 @@ const HeaderLink = styled.a`
 `
 
 const links = [
+<<<<<<< HEAD
   { href: '/', text: 'Ideas', authRequired: true },
+=======
+  { href: '/', text: 'Home' },
+  { href: '/ideas', text: 'Ideas', authRequired: true },
+>>>>>>> e8523a686161dc5469921cbebbbcaa10af3e2e66
   { href: '/auth/sign-in', text: 'Sign In', anonymousOnly: true },
   { href: '/auth/sign-off', text: 'Sign Off', authRequired: true }
 ]
