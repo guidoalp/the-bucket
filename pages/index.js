@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import ReactDOM from 'react-dom'
+import styled from 'styled-components'
 
 import Header from '../components/header'
 import Main from '../components/main'
@@ -23,5 +24,9 @@ const Index = ({ isAuthenticated }) => (
     )}
   </div>
 )
+
+Index.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired
+}
 
 export default defaultPage(Index)
