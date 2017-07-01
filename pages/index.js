@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 
@@ -7,26 +8,23 @@ import Main from '../components/main'
 import defaultPage from '../hocs/defaultPage'
 import { getUserFromCookie, getUserFromLocalStorage } from '../utils/auth'
 
-const getUser = () => (
-  getUserFromLocalStorage().name
-)
-
-const Index = ({ isAuthenticated }) => (
+const Index = ({ isAuthenticated, loggedUser }) => (
   <div>
     {!isAuthenticated && (
       <p>Please login or sign-up!</p>
     )}
     {isAuthenticated && (
       <div>
-        <p>Welcome back, <strong>{ getUser() }</strong>!</p>
-        <Main />
+        <p>Welcome back, <strong> { loggedUser.name }</strong>!</p>
+        <Main user={loggedUser}/>
       </div>
     )}
   </div>
 )
 
-Index.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired
+Index.PropTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+  loggedUser: PropTypes.object.isRequired
 }
 
 export default defaultPage(Index)

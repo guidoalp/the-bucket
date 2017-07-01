@@ -1,10 +1,14 @@
 import moment from 'moment'
+import styled from 'styled-components'
 
 import loadDB from './db'
 import getIdeas from './get-ideas'
 import pushIdea from './push-idea'
-import Lista from './list-ideas'
-import { getUserFromCookie, getUserFromLocalStorage } from '../utils/auth'
+import List from './list-ideas'
+
+const addIdea = {
+  width: '100%'
+}
 
 class Main extends React.Component {
 
@@ -23,8 +27,8 @@ class Main extends React.Component {
 
     const newIdea = {
       content: value,
-      author: getUserFromLocalStorage(),
-      date: moment().toString()
+      author: this.props.user,
+      date: Date.now()
     }
 
     if (! value) return
@@ -53,9 +57,9 @@ class Main extends React.Component {
 
   render() {
     return <div>
-      <Lista ideas={ this.state.ideas } />
+      <List ideas={ this.state.ideas } />
       <form onSubmit={ this.onSubmit }>
-        <textarea name="idea" value={ this.state.value } placeholder={ this.getPlaceholder() } onChange={ this.onChange }/>
+        <textarea name="idea" value={ this.state.value } style={ addIdea } placeholder={ this.getPlaceholder() } onChange={ this.onChange }/>
         <button type="submit">Enviar</button>
       </form>
     </div>

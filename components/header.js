@@ -49,7 +49,7 @@ const Header = ({ isAuthenticated, currentUrl }) => (
   </AppHeader>
 )
 
-Header.propTypes = {
+Header.PropTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   currentUrl: PropTypes.string.isRequired
 }
